@@ -8,6 +8,6 @@ try {
   const success = await lintStaged()
   process.exit(success ? 0 : 1)
 } catch (error) {
-  console.error('[phz-hooks] pre-commit failed:', error)
+  console.error('[bluehop-hooks] pre-commit failed:', error)
   process.exit(1)
 }

@@ -13,7 +13,7 @@ const require = createRequire(import.meta.url)
 
 const messageFile = process.argv[2]
 if (!messageFile) {
-  console.error('[phz-hooks] commit-msg: no message file passed by git')
+  console.error('[bluehop-hooks] commit-msg: no message file passed by git')
   process.exit(1)
 }
 
@@ -36,7 +36,7 @@ try {
   )
 
   if (!report.valid) {
-    console.error('[phz-hooks] commit message rejected:')
+    console.error('[bluehop-hooks] commit message rejected:')
     for (const problem of [...report.errors, ...report.warnings]) {
       const mark = problem.level === 2 ? '✖' : '⚠'
       console.error(`  ${mark} ${problem.message}`)
@@ -45,6 +45,6 @@ try {
     process.exit(1)
   }
 } catch (error) {
-  console.error('[phz-hooks] commit-msg check failed:', error)
+  console.error('[bluehop-hooks] commit-msg check failed:', error)
   process.exit(1)
 }

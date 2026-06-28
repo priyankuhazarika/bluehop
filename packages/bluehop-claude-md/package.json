@@ -15,7 +15,7 @@
   ],
   "type": "module",
   "bin": {
-    "phz-claude-md": "bin/init.mjs"
+    "bluehop-claude-md": "bin/init.mjs"
   },
   "repository": {
     "type": "git",

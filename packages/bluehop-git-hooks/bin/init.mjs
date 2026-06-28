@@ -12,19 +12,19 @@ const templates = join(here, '..', 'templates')
 const cwd = process.cwd()
 
 if (!existsSync(join(cwd, '.git'))) {
-  console.warn('[phz-hooks] no .git directory found — run `git init` first. Skipping.')
+  console.warn('[bluehop-hooks] no .git directory found — run `git init` first. Skipping.')
   process.exit(0)
 }
 
 // 1. Initialize husky (creates .husky/_ and points core.hooksPath at it).
 const result = husky()
-if (result) console.log(`[phz-hooks] ${result}`)
+if (result) console.log(`[bluehop-hooks] ${result}`)
 
 // 2. Write the hook entrypoints (they call this package's wrapper bins).
 const huskyDir = join(cwd, '.husky')
 mkdirSync(huskyDir, { recursive: true })
-writeHook('pre-commit', 'phz-hooks-pre-commit\n')
-writeHook('commit-msg', 'phz-hooks-commit-msg "$1"\n')
+writeHook('pre-commit', 'bluehop-hooks-pre-commit\n')
+writeHook('commit-msg', 'bluehop-hooks-commit-msg "$1"\n')
 
 // 3. Scaffold the lint-staged config (re-exports ours) if absent. commit-msg is
 //    self-contained (always Conventional Commits), so it needs no consumer config.
@@ -33,7 +33,9 @@ copyIfAbsent('lint-staged.config.mjs')
 // 4. Ensure a `prepare` script so hooks reinstall after a fresh clone/install.
 ensurePrepareScript()
 
-console.log('[phz-hooks] git hooks installed (pre-commit → lint-staged, commit-msg → commitlint).')
+console.log(
+  '[bluehop-hooks] git hooks installed (pre-commit → lint-staged, commit-msg → commitlint).',
+)
 
 function writeHook(name, body) {
   const path = join(huskyDir, name)
@@ -56,10 +58,10 @@ function ensurePrepareScript() {
   if (!existsSync(pkgPath)) return
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'))
   pkg.scripts ??= {}
-  if (pkg.scripts.prepare?.includes('phz-hooks-init')) return
+  if (pkg.scripts.prepare?.includes('bluehop-hooks-init')) return
   pkg.scripts.prepare = pkg.scripts.prepare
-    ? `${pkg.scripts.prepare} && phz-hooks-init`
-    : 'phz-hooks-init'
+    ? `${pkg.scripts.prepare} && bluehop-hooks-init`
+    : 'bluehop-hooks-init'
   writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
-  console.log('✓ added "prepare": "phz-hooks-init" to package.json')
+  console.log('✓ added "prepare": "bluehop-hooks-init" to package.json')
 }

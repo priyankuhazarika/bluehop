@@ -85,9 +85,9 @@ export default [...react]
 Then run the one-command setups for the rest:
 
 ```bash
-npx phz-hooks-init        # installs git hooks (auto-lint on commit + Conventional Commits)
-npx phz-editor-config     # writes .editorconfig and .vscode settings
-npx phz-claude-md         # writes a CLAUDE.md you can fill in
+npx bluehop-hooks-init        # installs git hooks (auto-lint on commit + Conventional Commits)
+npx bluehop-editor-config     # writes .editorconfig and .vscode settings
+npx bluehop-claude-md         # writes a CLAUDE.md you can fill in
 ```
 
 That's it — the project is configured.

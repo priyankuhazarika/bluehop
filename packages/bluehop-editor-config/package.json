@@ -14,7 +14,7 @@
   ],
   "type": "module",
   "bin": {
-    "phz-editor-config": "bin/apply.mjs"
+    "bluehop-editor-config": "bin/apply.mjs"
   },
   "repository": {
     "type": "git",

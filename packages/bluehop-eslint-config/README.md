@@ -1,7 +1,26 @@
 # @sleepingasteroid/bluehop-eslint-config
 
-Shared **ESLint flat configs**. All plugins ship as dependencies of this package, so you
-install one package and import a ready-made config — no plugin juggling in your project.
+> Ready-to-use ESLint rules for TypeScript, React, Next.js, Node, and React Native — install
+> one package, import one line, done.
+
+## What is this?
+
+[ESLint](https://eslint.org) is the tool that scans your code for mistakes and keeps its style
+consistent. Setting it up from scratch is tedious: you install a parser, a handful of plugins
+(TypeScript, React, hooks, accessibility, import rules), then hand-pick dozens of individual
+rules — and keep all of that in sync across every project.
+
+This package does all of that for you. It bundles every plugin it needs as its own dependency
+and gives you a few **ready-made configs** you just drop in. You install **one** package and
+import **one** line — no plugin juggling, no rule-by-rule setup.
+
+## Why use it?
+
+- **One install instead of ten** — all the plugins ship inside this package.
+- **Sensible, strict defaults** already wired up (see the rules below).
+- **Pick your project type** — a variant for plain TypeScript, Node, React, Next.js, or React
+  Native.
+- **Stays consistent everywhere** — update the rules here once and every project gets them.
 
 ## Install
 
@@ -11,7 +30,7 @@ pnpm add -D @sleepingasteroid/bluehop-eslint-config eslint
 
 ## Use
 
-Create `eslint.config.js` and spread the variant you need:
+Create an `eslint.config.js` and spread the variant that matches your project:
 
 ```js
 import { react } from '@sleepingasteroid/bluehop-eslint-config'
@@ -19,11 +38,11 @@ import { react } from '@sleepingasteroid/bluehop-eslint-config'
 export default [...react]
 ```
 
-Subpath imports work too: `@sleepingasteroid/bluehop-eslint-config/next`.
+Subpath imports work too: `import config from '@sleepingasteroid/bluehop-eslint-config/next'`.
 
-## Variants
+## Variants — pick the one that fits your project
 
-| Variant       | Import path     | For                          |
+| Variant       | Import path     | Use it for                   |
 | ------------- | --------------- | ---------------------------- |
 | `base`        | `/base`         | Any TypeScript project       |
 | `node`        | `/node`         | Node services, CLIs, scripts |
@@ -31,18 +50,23 @@ Subpath imports work too: `@sleepingasteroid/bluehop-eslint-config/next`.
 | `next`        | `/next`         | Next.js apps                 |
 | `reactNative` | `/react-native` | React Native / Expo apps     |
 
-## House rules encoded here
+## What rules does it enforce?
 
-- `@typescript-eslint/no-explicit-any` → error (no `any`)
-- `@typescript-eslint/no-unused-vars` → error (`_`-prefixed args/vars are ignored)
-- `react-hooks/exhaustive-deps` → error
-- `import-x/no-default-export` → error (named exports only; relaxed for Next.js pages/config)
-- `no-console` → error
-- Formatting is delegated to Prettier (`eslint-config-prettier` applied last)
+The main "house rules" baked in:
 
-### `no-console` in logging utilities
+- **No `any`** — `@typescript-eslint/no-explicit-any` is an error.
+- **No unused variables** — except ones you intentionally prefix with `_`.
+- **Correct React hooks** — `react-hooks/exhaustive-deps` is an error.
+- **Named exports only** — `import-x/no-default-export` is an error (automatically relaxed
+  where frameworks require default exports, e.g. Next.js pages and config files).
+- **No stray `console` calls** — `no-console` is an error (see below).
+- **Formatting is left to Prettier** — this config switches off style rules so it never fights
+  with [`bluehop-prettier-config`](https://www.npmjs.com/package/@sleepingasteroid/bluehop-prettier-config).
 
-`no-console` is an error everywhere. In your dedicated logger module, disable it locally:
+### Allowing `console` in your logger
+
+`no-console` is an error everywhere on purpose — logging should live in one dedicated module.
+In that module, turn the rule off locally:
 
 ```ts
 /* eslint-disable no-console -- this is the logging utility */
@@ -50,3 +74,9 @@ export const logger = {
   error: (msg: string, err: unknown) => console.error(msg, err),
 }
 ```
+
+---
+
+Part of the **[bluehop](https://github.com/priyankuhazarika/bluehop)** toolkit — a set of
+shareable project configs. Pairs well with `bluehop-prettier-config`, `bluehop-tsconfig`, and
+`bluehop-git-hooks`.

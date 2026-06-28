@@ -15,9 +15,9 @@
   ],
   "type": "module",
   "bin": {
-    "phz-hooks-init": "bin/init.mjs",
-    "phz-hooks-pre-commit": "bin/pre-commit.mjs",
-    "phz-hooks-commit-msg": "bin/commit-msg.mjs"
+    "bluehop-hooks-init": "bin/init.mjs",
+    "bluehop-hooks-pre-commit": "bin/pre-commit.mjs",
+    "bluehop-hooks-commit-msg": "bin/commit-msg.mjs"
   },
   "exports": {
     "./lint-staged": "./lint-staged.config.mjs"
