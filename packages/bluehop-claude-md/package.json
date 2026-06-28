@@ -1,6 +1,6 @@
 {
   "name": "@sleepingasteroid/bluehop-claude-md",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generalized CLAUDE.md template with house coding standards, dropped into any project.",
   "license": "MIT",
   "author": "Priyanku Hazarika",

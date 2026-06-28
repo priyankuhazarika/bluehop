@@ -1,6 +1,6 @@
 {
   "name": "@sleepingasteroid/bluehop-git-hooks",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "One-command husky + lint-staged + commitlint (conventional commits) setup.",
   "license": "MIT",
   "author": "Priyanku Hazarika",

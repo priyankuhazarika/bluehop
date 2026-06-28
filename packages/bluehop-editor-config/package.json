@@ -1,6 +1,6 @@
 {
   "name": "@sleepingasteroid/bluehop-editor-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shared .editorconfig and VSCode settings, applied into a project with one command.",
   "license": "MIT",
   "author": "Priyanku Hazarika",

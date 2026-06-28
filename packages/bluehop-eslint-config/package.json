@@ -1,6 +1,6 @@
 {
   "name": "@sleepingasteroid/bluehop-eslint-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shared ESLint flat configs: base / react / next / node / react-native.",
   "license": "MIT",
   "author": "Priyanku Hazarika",
