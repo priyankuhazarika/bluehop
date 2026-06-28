@@ -166,24 +166,73 @@ from here.
 
 ## 8. How a new version actually gets published (automatic)
 
-You don't run any publish command. Here's the whole flow once your change is on `main`:
+You don't run any publish command yourself. A robot (a GitHub Action) does it. Here's the whole
+thing in the simplest words.
 
-1. You merge your change (with its changeset file) into `main`.
-2. A GitHub Action notices the changeset and **opens a new pull request** titled
-   **"Version Packages."** This PR:
-   - bumps the version numbers of the changed packages,
-   - updates their `CHANGELOG.md` files with your summary,
-   - deletes the changeset file (its job is done).
-3. You review and **merge the "Version Packages" PR.**
-4. Merging it triggers the Action again, which this time **publishes the new versions to npm**.
+### The 30-second version
 
-So there are **two merges**: first your actual change, then the auto-generated "Version
-Packages" PR that does the release. After the second merge, the new versions are live on npm
-within a minute or two.
+1. You push your change **plus a changeset note** to `main`.
+2. The robot reads the note and opens a **"Version Packages" pull request** that raises the
+   version numbers.
+3. You **merge that pull request.**
+4. Merging it makes the robot **publish the packages to npm.**
 
-> You can let several changes pile up and release them together — each one adds its own
-> changeset, and the single "Version Packages" PR bundles them all when you're ready to merge
-> it.
+That's it. Two merges total: your change, then the robot's version pull request.
+
+### What's actually happening (with the branch explained)
+
+Think of the changeset note as a sticky note that says _"next release, bump these packages."_
+Here's the journey, step by step:
+
+1. **You push your change + the changeset note to `main`.** Nothing is published yet — the note
+   is just sitting there saying "there's an unreleased change."
+
+2. **The robot wakes up** (the GitHub Action runs on every push to `main`). It sees the note and
+   does the version bump _on a separate branch_, **not** directly on `main`. That branch is
+   always named **`changeset-release/main`**. On it, the robot:
+   - raises the version numbers (e.g. `0.1.0` → `0.2.0`),
+   - writes the `CHANGELOG.md` entries from your note,
+   - deletes the note (it's been used up).
+
+   > **Why a separate branch?** So your `main` stays clean and you get a chance to _review_ the
+   > version bump before it becomes official. The robot never edits `main` on its own.
+
+3. **The robot opens a pull request** from `changeset-release/main` → `main`, titled
+   **"Version Packages."** A pull request is just a proposal: _"here are the version changes I
+   want to put into `main` — approve them?"_
+
+4. **You merge that pull request.** Now the new version numbers land on `main`.
+
+5. **Merging triggers the robot again.** This time there's no leftover note, but it sees the
+   versions on `main` are newer than what's on npm — so it runs the publish and **uploads the
+   packages to the npm registry.** "Deployed" here just means _uploaded to npm_, the place
+   people download them from with `pnpm add`.
+
+After that second merge, the packages are live on [npmjs.com](https://www.npmjs.com) within a
+minute or two.
+
+### Picture it
+
+```
+your change + note  ──push──▶  main
+                                 │  robot reads the note
+                                 ▼
+                       changeset-release/main   (robot bumps versions here)
+                                 │  robot opens "Version Packages" PR
+                                 ▼
+                      you MERGE the PR  ──▶  main (now has new versions)
+                                 │  robot runs again
+                                 ▼
+                          published to npm  📦
+```
+
+> **Tip:** you can let several changes pile up — each adds its own note, and the single
+> "Version Packages" PR bundles them all into one release when you merge it.
+
+> **Heads-up:** the `changeset-release/main` branch is the robot's scratch branch. Don't edit it
+> by hand. If a release ever gets stuck on it (e.g. an error like _"No commits between main and
+> changeset-release/main"_), the fix is to delete that branch and push again — the robot
+> recreates it cleanly.
 
 ---
 
