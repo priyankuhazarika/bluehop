@@ -162,7 +162,7 @@ Issues and pull requests are welcome — open one at
 [github.com/priyankuhazarika/bluehop/issues](https://github.com/priyankuhazarika/bluehop/issues).
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the full plain-English walkthrough. In short:
 each change needs a changeset (`pnpm changeset`) so the affected packages get versioned and
-published on merge, and commits follow Conventional Commits (enforced by the git hooks).
+published on merge, and commits follow Conventional Commits (enforced by the git hooks)
 
 ## License
 
