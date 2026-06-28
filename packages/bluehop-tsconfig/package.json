@@ -1,0 +1,38 @@
+{
+  "name": "@sleepingasteroid/bluehop-tsconfig",
+  "version": "0.0.0",
+  "description": "Shared, strict TypeScript configuration presets.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-tsconfig#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "tsconfig-preset",
+    "config",
+    "strict"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-tsconfig"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "base.json",
+    "node.json",
+    "react-library.json",
+    "nextjs.json",
+    "react-native.json"
+  ],
+  "exports": {
+    "./base.json": "./base.json",
+    "./node.json": "./node.json",
+    "./react-library.json": "./react-library.json",
+    "./nextjs.json": "./nextjs.json",
+    "./react-native.json": "./react-native.json"
+  }
+}

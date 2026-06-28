@@ -1,0 +1,31 @@
+{
+  "name": "@sleepingasteroid/bluehop-editor-config",
+  "version": "0.0.0",
+  "description": "Shared .editorconfig and VSCode settings, applied into a project with one command.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-editor-config#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "editorconfig",
+    "vscode",
+    "editor",
+    "settings"
+  ],
+  "type": "module",
+  "bin": {
+    "phz-editor-config": "bin/apply.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-editor-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ]
+}

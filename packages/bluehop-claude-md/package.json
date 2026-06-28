@@ -1,0 +1,32 @@
+{
+  "name": "@sleepingasteroid/bluehop-claude-md",
+  "version": "0.0.0",
+  "description": "Generalized CLAUDE.md template with house coding standards, dropped into any project.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-claude-md#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-md",
+    "template",
+    "coding-standards"
+  ],
+  "type": "module",
+  "bin": {
+    "phz-claude-md": "bin/init.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-claude-md"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin",
+    "template/CLAUDE.md"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@sleepingasteroid/bluehop-eslint-config",
+  "version": "0.0.0",
+  "description": "Shared ESLint flat configs: base / react / next / node / react-native.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-eslint-config#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslintconfig",
+    "flat-config",
+    "typescript",
+    "react",
+    "prettier"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./base": "./base.js",
+    "./react": "./react.js",
+    "./next": "./next.js",
+    "./node": "./node.js",
+    "./react-native": "./react-native.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-eslint-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "base.js",
+    "react.js",
+    "next.js",
+    "node.js",
+    "react-native.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=9",
+    "typescript": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "typescript-eslint": "^8.61.0"
+  }
+}

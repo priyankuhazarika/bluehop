@@ -1,0 +1,37 @@
+{
+  "name": "bluehop",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shareable ESLint / Prettier / TypeScript / git-hook / editor / CLAUDE.md configs, published to npm.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@sleepingasteroid/bluehop-eslint-config": "workspace:*",
+    "@sleepingasteroid/bluehop-prettier-config": "workspace:*",
+    "@sleepingasteroid/bluehop-tsconfig": "workspace:*",
+    "eslint": "^10.5.0",
+    "prettier": "^3.8.4",
+    "typescript": "^6.0.3"
+  },
+  "prettier": "@sleepingasteroid/bluehop-prettier-config"
+}

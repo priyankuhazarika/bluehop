@@ -1,0 +1,34 @@
+{
+  "name": "@sleepingasteroid/bluehop-prettier-config",
+  "version": "0.0.0",
+  "description": "Shared Prettier configuration: single quotes, no semicolons, 2-space indent.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-prettier-config#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "prettier",
+    "prettier-config",
+    "formatting",
+    "code-style"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-prettier-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "prettier": ">=3"
+  }
+}

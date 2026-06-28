@@ -1,0 +1,22 @@
+node_modules/
+dist/
+build/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Env & local
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Editor
+*.tsbuildinfo
+.eslintcache
+
+#AGENTIC
+/CLAUDE.md

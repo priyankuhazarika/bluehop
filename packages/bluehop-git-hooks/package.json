@@ -1,0 +1,45 @@
+{
+  "name": "@sleepingasteroid/bluehop-git-hooks",
+  "version": "0.0.0",
+  "description": "One-command husky + lint-staged + commitlint (conventional commits) setup.",
+  "license": "MIT",
+  "author": "Priyanku Hazarika",
+  "homepage": "https://github.com/priyankuhazarika/bluehop/tree/main/packages/bluehop-git-hooks#readme",
+  "bugs": "https://github.com/priyankuhazarika/bluehop/issues",
+  "keywords": [
+    "husky",
+    "lint-staged",
+    "commitlint",
+    "conventional-commits",
+    "git-hooks"
+  ],
+  "type": "module",
+  "bin": {
+    "phz-hooks-init": "bin/init.mjs",
+    "phz-hooks-pre-commit": "bin/pre-commit.mjs",
+    "phz-hooks-commit-msg": "bin/commit-msg.mjs"
+  },
+  "exports": {
+    "./lint-staged": "./lint-staged.config.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankuhazarika/bluehop.git",
+    "directory": "packages/bluehop-git-hooks"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin",
+    "lint-staged.config.mjs",
+    "templates"
+  ],
+  "dependencies": {
+    "@commitlint/config-conventional": "^21.0.2",
+    "@commitlint/lint": "^21.0.2",
+    "@commitlint/load": "^21.0.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7"
+  }
+}
